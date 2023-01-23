@@ -3,7 +3,15 @@
     src: url("fonts/zh-cn.ttf") format("opentype");
 }
 
-#bgdiv{
+html{
+    overflow: hidden;
+}
+body{
+    overflow: hidden;
+    margin: 0vh;
+    padding: 0vh;
+}
+.bgdiv{
     position: absolute; 
     top: 0; 
     left: 0; 
@@ -18,14 +26,14 @@
     background-color: rgb(0, 0, 0);
 }
 
-#bgimage{
+.bgimage{
     
     width: 100vh; 
     height: 100vh; 
     filter: blur(1ex);
 }
 
-#bgblack{
+.bgblack{
     z-index: 0;
     background-color: black;
     opacity: 50%;
@@ -39,7 +47,7 @@
     filter: blur(1ex);
 }
 
-#container{
+.container{
     z-index: 1;
     position: relative;
     display: flex;
@@ -52,17 +60,17 @@
     margin-top: 14vh;
 }
 
-#icon{
+.icon{
     width: 25vh;
     height: 25vh;
 }
 
-#titulo{
+.titulo{
     margin-top:2vh;
     width: 15vh;
     height: 7vh;
 }
-#text{
+.text{
     font-family: Gfont, Helvetica, sans-serif;
     color: white;
     padding: 0 1em;
