@@ -1,117 +1,98 @@
 @font-face {
-    font-family: Gfont;
-    src: url("fonts/zh-cn.ttf") format("opentype");
+    font-family: GFont;
+    src: url('https://lagon93.github.io/GI_project/fonts/zh-cn.ttf');
 }
-
-html{
-    overflow: hidden;
+* {
+    font-family: GFont;
 }
-body{
-    overflow: hidden;
-    margin: 0vh;
-    padding: 0vh;
-}
-div.bgdiv{
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    width: 100vw; 
-    height: 100vh; 
-    overflow: hidden; 
-    z-index: 0; 
-    text-align: center;
-    margin: 0 auto;
-    background-color: rgb(0, 0, 0);
-}
-
-.bgimage{
-    
-    width: 100vh; 
-    height: 100vh; 
-    filter: blur(1ex);
-}
-
-.bgblack{
-    z-index: 0;
-    background-color: black;
-    opacity: 50%;
-    width: auto; 
-    height: 40vh; 
-    position: absolute; 
-    top: 60vh; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    filter: blur(1ex);
-}
-
-.container{
-    z-index: 1;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+div.divFondo, div.divContenido {
+    width: 100vw;
     height: 100vh;
-
-}
-
-.icon{
-    width: 25vh;
-    height: 25vh;
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    margin-top: 5px;
-}
-
-
-.icon_2{
-    width: 25vh;
-    height: 25vh;
-    margin-top: 17vh;
-}
-
-.titulo{
-    margin-top:4vh;
-    width: 15vh;
-    height: 7vh;
-}
-.text{
-    font-family: Gfont, Helvetica, sans-serif;
-    color: white;
-    padding: 0 1em;
-}
-
-.boton{
-    height:5vh;
-    width: 30vh;
-    border-radius: 25px;
-    border-color: white;
-    border-style: solid;
-    background-color: rgba(128, 128, 128, 0.5);
-    font-family: Gfont;
-    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0 none transparent;
+    outline: 0 none transparnet;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     text-align: center;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-.vacio{
-    height: 9vh;
+div.divFondo {
+    z-index: 0;
+    overflow: hidden;
+    text-align: center;
+    filter: blur(15px);
+    background-image: url("https://lagon93.github.io/GI_project/img/Meseta_de_la_Ventisca.webp");
+    background-repeat: no-repeat;
+    background-size: auto 100vh;
+    background-position: center center;
 }
-a:link, a:visited{
+div.divContenido {
+    z-index: 8;
+}
+div.Vacio {
+    height: 20vh;
+}
+div.Icono {
+    height: 25vh;
+}
+img.Icono {
+    width: auto;
+    height: 25vh;
+}
+div.Titulo {
+    padding-top: 3vh;
+    height: 5vh;
+    text-align: center;
+    color: #DEA826;
+    font-size: 3vh;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 90%, rgba(0, 0, 0, 0.0) 100%);
+}
+div.Texto {
+    height: 50vh;
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
-    text-decoration: none;
-
+    font-size: 2vh;
 }
-
- 
-@keyframes floating {
-    0% { transform: translate(0,  0px); }
-    50%  { transform: translate(0, 10px); }
-    100%   { transform: translate(0, -0px); }   
+body.Slept div.Texto {
+    color: transparent;
+}
+a.Boton, a.Boton:active, a.Boton:hover, a.Boton:visited {
+    background-color: rgba(200, 200, 200, 0.4);
+    border: 0.25vh solid white;
+    color: white;
+    font-size: 2vh;
+    padding: 1vh 3vh;
+    border-radius: 6vh;
+    display: none;
+    cursor: pointer;
+}
+body.Slept a.Boton{
+    display: inline-block;
+}
+body.Slept div.Titulo span {
+    display: none;
+}
+img {
+    width: 25vh;
+    height: 25vh;
+}
+img.Icono2 {
+    display: inline-block;
+}
+img.Icono1 {
+    display: none;
+}
+body.Slept img.Icono1 {
+    display: inline-block;
+}
+body.Slept img.Icono2 {
+    display: none;
+}
+@media (min-aspect-ratio: 1921/1080) {
+    div.divFondo {
+        background-size: 100vw auto;
+    }
 }
