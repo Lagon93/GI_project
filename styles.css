@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Gfont;
+    src: url("fonts/zh-cn.ttf") format("opentype");
+}
+
 #bgdiv{
     position: absolute; 
     top: 0; 
@@ -36,24 +41,29 @@
 
 #container{
     z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 14vh;
 }
 
 #icon{
-    position: absolute;
     width: 25vh;
     height: 25vh;
-    top: 32vh; 
-    left: 10vh; 
-    right: 0; 
-    bottom: 0; 
 }
 
 #titulo{
-    position: absolute;
+    margin-top:2vh;
     width: 15vh;
     height: 7vh;
-    top: 61vh; 
-    left: 15vh; 
-    right: 0; 
-    bottom: 0; 
+}
+#text{
+    font-family: Gfont, Helvetica, sans-serif;
+    color: white;
+    padding: 0 1em;
 }
