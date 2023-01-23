@@ -11,7 +11,7 @@ body{
     margin: 0vh;
     padding: 0vh;
 }
-.bgdiv{
+div.bgdiv{
     position: absolute; 
     top: 0; 
     left: 0; 
@@ -57,7 +57,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin-top: 14vh;
+
 }
 
 .icon{
@@ -74,4 +74,26 @@ body{
     font-family: Gfont, Helvetica, sans-serif;
     color: white;
     padding: 0 1em;
+}
+
+.boton{
+    height:5vh;
+    width: 30vh;
+    border-radius: 25px;
+    border-color: white;
+    border-style: solid;
+    background-color: grey;
+    fill-opacity: 50%;
+    font-family: Gfont;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.vacio{
+    height: 9vh;
+}
+a:link, a:visited{
+    color: white;
+    text-decoration: none;
+
 }
