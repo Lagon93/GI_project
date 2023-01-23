@@ -49,6 +49,7 @@ div.Titulo {
     color: #DEA826;
     font-size: 3vh;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 90%, rgba(0, 0, 0, 0.0) 100%);
+    line-height: 4vh;
 }
 div.Texto {
     height: 50vh;
@@ -90,6 +91,39 @@ body.Slept img.Icono1 {
 }
 body.Slept img.Icono2 {
     display: none;
+}
+span.Barra {
+    overflow: visible;
+    display: inline-block;
+    vertical-align: middle;
+    width: 80vw;
+    height: 0.5vh;
+    background-color: #DEA826;
+    margin-top: -5vh;
+    position: relative;
+}
+span.Barra:before, span.Barra:after {
+    content: ' ';
+    display: inline-block;
+    width: 2vh;
+    height: 2vh;
+    vertical-align: middle;
+    background-color: transparent;
+    position: absolute;
+    top: -0.75vh;
+    background-size: 2vh 2vh;
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+span.Barra:before {
+    /*background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.4189999 9.1828938"><path style="stroke:none;fill:#dea826" d="M9.419 3.48 5.702 0 1.475 4.66.816 4.2 0 5.08l.816.868.659-.501 4.227 3.736 3.717-2.557M5.702 2.498l2.32 2.582-2.32 3.513L2.635 5.08Z"/></svg>');*/
+    background-image: url( "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%209.4189999%209.1828938%22%3E%3Cpath%20style%3D%22stroke%3Anone%3Bfill%3A%23dea826%22%20d%3D%22M9.419%203.48%205.702%200%201.475%204.66.816%204.2%200%205.08l.816.868.659-.501%204.227%203.736%203.717-2.557M5.702%202.498l2.32%202.582-2.32%203.513L2.635%205.08Z%22%2F%3E%3C%2Fsvg%3E" );
+    left: -2vh;
+}
+span.Barra:after {
+    /*background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.4189999 9.1828938"><path style="stroke:none;fill:#dea826" d="M0 3.48 3.717 0l4.227 4.66.659-.46.816.88-.816.868-.659-.501-4.227 3.736L0 6.626m3.717-4.128L1.397 5.08l2.32 3.513L6.784 5.08Z"/></svg>');*/
+    background-image: url( "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%209.4189999%209.1828938%22%3E%3Cpath%20style%3D%22stroke%3Anone%3Bfill%3A%23dea826%22%20d%3D%22M0%203.48%203.717%200l4.227%204.66.659-.46.816.88-.816.868-.659-.501-4.227%203.736L0%206.626m3.717-4.128L1.397%205.08l2.32%203.513L6.784%205.08Z%22%2F%3E%3C%2Fsvg%3E" );
+    right: -2vh;
 }
 @media (min-aspect-ratio: 1921/1080) {
     div.divFondo {
