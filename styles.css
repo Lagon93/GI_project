@@ -130,3 +130,18 @@ span.Barra:after {
         background-size: 100vw auto;
     }
 }
+
+body.Slept a.Boton2{
+    display: none;
+}
+a.Boton2, a.Boton2:active, a.Boton2:hover, a.Boton2:visited {
+    background-color: rgba(200, 200, 200, 0.4);
+    border: 0.25vh solid white;
+    color: white;
+    font-size: 2vh;
+    padding: 1vh 3vh;
+    border-radius: 6vh;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 4vh;
+}
