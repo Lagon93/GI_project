@@ -163,7 +163,7 @@ a.Boton3, a.Boton3:active, a.Boton3:hover, a.Boton3:visited {
 }
 
 div.Gameover{
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 90%, rgba(0, 0, 0, 0.7) 100%);
+   
     display: none;
     z-index: 9865;
     position: absolute;
@@ -175,5 +175,9 @@ div.Gameover{
     bottom: 0;
     margin: 0;
     padding: 0;
+    text-shadow: rgb(235, 69, 57) 1px 0 10px;
+    color: #db3939;
+    text-align: center;
+    font-size: 10vw;
 
 }
