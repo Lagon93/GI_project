@@ -42,6 +42,7 @@ img.Icono {
     width: auto;
     height: 25vh;
 }
+
 div.Titulo {
     padding-top: 3vh;
     height: 5vh;
@@ -88,7 +89,37 @@ img.Icono1 {
 }
 body.Slept img.Icono1 {
     display: inline-block;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -12px;
+    -webkit-animation: bounce-down 1.6s linear infinite;
+    animation: bounce-down 1.6s linear infinite;
 }
+
+@-webkit-keyframes bounce-down {
+   25% {
+        -webkit-transform: translateY(-4px);
+   }
+   50%, 100% {
+        -webkit-transform: translateY(0);
+   }
+   75% {
+        -webkit-transform: translateY(4px);
+   }
+}
+
+@keyframes bounce-down {
+    25% {
+         transform: translateY(-4px);
+    }
+    50%, 100% {
+         transform: translateY(0);
+    }
+    75% {
+         transform: translateY(4px);
+    }
+}
+
 body.Slept img.Icono2 {
     display: none;
 }
