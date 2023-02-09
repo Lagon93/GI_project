@@ -4,23 +4,26 @@
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
-    <body class="Slept">
+    <body class="">
         <div class="divFondo"></div>
+        <div class="Gameover"></div>
         <div class="divContenido">
             <div class="Vacio"></div>
             <div class="Icono">
 
-                <img class="Icono2" src="https://lagon93.github.io/GI_project/img/xiao2.webp"/>
+                <img class="Icono2" src="https://lagon93.github.io/GI_project/img/xiao3.webp"/>
             </div>
             <div class="Titulo">
-                <a class="Boton" onclick="document.body.setAttribute('class', '')">Despertar a Xiao</a>
+              
                 <span>Xiao</span><br/>
                 <span class="Barra">&nbsp;</span>
             </div>
             <div class="Texto">
-                <div style="text-align: left; padding: 1vh 2vh;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel dictum dui. Donec finibus congue lorem, a sollicitudin 
-                risus vulputate sed. Praesent ultrices elit dolor, ut consectetur odio auctor non. Sed tempor posuere consectetur. Mauris maximus 
-                ornare elit, id finibus mauris tincidunt eu. Aliquam eu dignissim justo, in consectetur enim. Cras ac justo at sem fringilla accumsan.</div>
+                <div style="text-align: left; padding: 1vh 2vh;">Quien tiene mas mala suerte de estas personas?</br>
+                <a class="Boton3" onclick="for(var elem of document.getElementsByClassName('Gameover')){elem.style.display = 'block';}"> Amber</a>
+                <a class="Boton3" onclick="location.href='/quiz.html'">Bennett</a>
+                <a class="Boton3" onclick="location.href='/quiz.html'">Diluc</a>
+                <a class="Boton3" onclick="location.href='/quiz.html'">Beidou</a></div>
             </div>
         </div>
     </body>

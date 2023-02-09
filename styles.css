@@ -145,3 +145,35 @@ a.Boton2, a.Boton2:active, a.Boton2:hover, a.Boton2:visited {
     cursor: pointer;
     margin-top: 4vh;
 }
+a.Boton3, a.Boton3:active, a.Boton3:hover, a.Boton3:visited {
+    background-color: rgba(200, 200, 200, 0.4);
+    border: 0.25vh solid white;
+    color: white;
+    font-size: 2vh;
+    padding: 1vh 3vh;
+    border-radius: 6vh;
+    display: flex;
+    cursor: pointer;
+    margin-top: 2vh;
+    margin-left: 1vh;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div.Gameover{
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.9) 90%, rgba(0, 0, 0, 0.7) 100%);
+    display: none;
+    z-index: 9865;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+
+}
