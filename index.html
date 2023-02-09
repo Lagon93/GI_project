@@ -3,13 +3,10 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script>
-            var audio = document.getElementById("genshinsmusic");
-            audio.volume = 0.1;
-        </script>
+ 
     </head>
     <body class="Slept">
-        <audio id="genshinsmusic" src="sounds/genshin.mp3" loop autoplay preload="auto" ></audio>
+        <audio id="genshinsmusic" src="sounds/genshin.mp3"  ></audio>
         <div class="divFondo"></div>
         <div class="divContenido">
             
@@ -19,7 +16,7 @@
                 <img class="Icono2" src="https://lagon93.github.io/GI_project/img/xiao2.webp"/>
             </div>
             <div class="Titulo">
-                <a class="Boton" onclick="document.body.setAttribute('class', '')">Despertar a Xiao</a>
+                <a class="Boton" onclick="document.body.setAttribute('class', '');audio.play();">Despertar a Xiao</a>
                 <span>Xiao</span><br/>
                 <span class="Barra">&nbsp;</span>
             </div>
@@ -29,5 +26,9 @@
                 <a class="Boton2" onclick="location.href='quiz.html'">Que tipo de preguntas?</a>
             </div>
         </div>
+    <script type="text/javascript">
+        const audio = new Audio();
+        audio.src = "./sounds/VO_Xiao_Joining_Party_01.ogg";
+    </script>
     </body>
 </html>
