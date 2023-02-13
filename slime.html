@@ -11,7 +11,11 @@
             
             <div class="Vacio"></div>
             <div class="Icono">
-                
+              <div class="progress">
+                <div id="myBar" class="progress-bar" style="width:0%;">
+
+                </div>
+            </div>
               <svg class="slime" width="172.55801mm" height="125.30732mm" viewBox="0 0 172.55801 125.30732" version="1.1" id="svg1"
                 xml:space="preserve" inkscape:version="1.3-dev (be383ba0a, 2023-01-01)" sodipodi:docname="pyro-slime.svg"
                 inkscape:export-filename="pyro-slime.svgz.webp" inkscape:export-xdpi="75.364799" inkscape:export-ydpi="75.364799"
@@ -160,13 +164,14 @@
            
             </div>
             <div class="Titulo">
-                <span>Xiao</span><br/>
+                <span>Slime</span><br/>
                 <span class="Barra">&nbsp;</span>
             </div>
             <div class="Texto">
-                <div style="text-align: left; padding: 1vh 2vh;">No te esperaba tan pronto...</br></br>
-                    Bueno, he oído que quieres acompañar a Morax en otra aventura. Y antes de eso deberás contestar unas preguntas, no cualquiera puede ser un digno compañero de Zhongli.</div>
-                <a class="Boton2" onclick="audio.play(); hit()">Que tipo de preguntas?</a>
+                <div style="text-align: center; padding: 1vh 2vh;">*sonido de slime*</div>
+                <a class="Boton4" onclick="audio.play(); hit(15); "><img id="pole" src="./img/Foreign_Rockblade_Traveler_Geo_Characters_Genshin_Impact (1).png" alt=""></a>
+                <a class="Boton4" onclick="audio.play(); hit(10); "><img id="pole" src="./img/Starfell_Sword_Traveler_Geo_Characters_Genshin_Impact.png" alt=""></a>
+                <a class="Boton5" onclick="audio.play(); hit(10); "><img id="pole2" src="./img/Wake_of_Earth_Traveler_Geo_Characters_Genshin_Impact.png" alt=""></a>
             </div>
         </div>
 
@@ -174,11 +179,28 @@
 
         const audio = new Audio();
         audio.src = "./sounds/slimejump-6913.mp3";
-
-        const slime =document.getElementsByClassName('slime');
-        function hit(){
-          slime.style.fill = '#ffccca';
+        const executeButton = document.getElementById('Boton4');
+        const progressBar = document.getElementById('myBar');
+        const progresBarText = progressBar.querySelector('.progress-bar-text');
+        progressBar.style.width = 100 + '%';
+        const slime =document.getElementById('svg1');
+        var life= 100;
+        function hit(dmg){          
+          slime.animate([{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)', transform: 'skewX(10deg)'},{filter:'sepia(100%) hue-rotate(-60deg) brightness(70%) saturate(2.5)'},{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)'}], {duration: 300, iterations: 1})
+        if (life >0){
+          life=life-dmg;
+          progressBar.style.width = life + '%';}
+        else{
+          const audio2 = new Audio();
+            audio2.src = "./sounds/cartoon-splat-6086.mp3";
+            audio2.play()
+            audio2.onended=function(){
+              location.href='slimedeath.html'                
+            }
+          
+          }
         }
+
         
     </script>
     </body>
