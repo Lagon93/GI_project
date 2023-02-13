@@ -212,3 +212,8 @@ div.Gameover{
     font-size: 10vw;
 
 }
+
+svg{
+    width: 70vw;
+    height: 70vw
+}
