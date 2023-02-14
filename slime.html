@@ -38,7 +38,7 @@
                     }
               
                     66% {
-                      transform: scaleY(0.4);
+                      transform: scaleY(0.7);
                     }
               
                     100% {
@@ -171,23 +171,51 @@
                 <div style="text-align: center; padding: 1vh 2vh;">*sonido de slime*</div>
                 <a class="Boton4" onclick="audio.play(); hit(15); "><img id="pole" src="./img/Foreign_Rockblade_Traveler_Geo_Characters_Genshin_Impact (1).png" alt=""></a>
                 <a class="Boton4" onclick="audio.play(); hit(10); "><img id="pole" src="./img/Starfell_Sword_Traveler_Geo_Characters_Genshin_Impact.png" alt=""></a>
-                <a class="Boton5" onclick="audio.play(); hit(10); "><img id="pole2" src="./img/Wake_of_Earth_Traveler_Geo_Characters_Genshin_Impact.png" alt=""></a>
+                <svg id="burstColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+                  <ellipse rx="57.040472" ry="57.040472" transform="translate(149.367622 142.03204)" fill="#d69028" stroke-width="0" />
+                </svg>
+
+                <a  class="disabled" id="Boton55" onclick="burst(event) "><img id="pole2" src="./img/Wake_of_Earth_Traveler_Geo_Characters_Genshin_Impact.png" alt=""></a>
             </div>
         </div>
 
     <script type="text/javascript">
-
-        const audio = new Audio();
-        audio.src = "./sounds/slimejump-6913.mp3";
-        const executeButton = document.getElementById('Boton4');
+     /*Funcion para definir las variables al cargar la pagina*/
+     /*function variables(){
+        const slime =document.getElementById('svg1');
+        const Burst = document.getElementById('Boton55');
+        Burst.setAttribute('disabled');
         const progressBar = document.getElementById('myBar');
         const progresBarText = progressBar.querySelector('.progress-bar-text');
         progressBar.style.width = 100 + '%';
-        const slime =document.getElementById('svg1');
         var life= 100;
-        function hit(dmg){          
+      }*/
+     /*Audio a usar como IDLE*/
+       const audio = new Audio();
+        audio.src = "./sounds/slimejump-6913.mp3";
+        
+        /*Definimos otra vez las putas variables*/
+        const progressBar = document.getElementById('myBar');
+        const progresBarText = progressBar.querySelector('.progress-bar-text');
+        progressBar.style.width = 100 + '%';
+        var life= 100;
+        const slime =document.getElementById('svg1'); 
+
+        /*Funcion que comprueba si el burst esta activo o no*/
+        function burst(){
+          if(event.target.classList.contains('disabled')){
+            console.log('no esta desactivado')
+          }else{
+            console.log('esta desactivado')
+              return;}
+        }
+
+        /*Funcion que contabiliza los golpes al slime y ejecuta la animacion*/
+        function hit(dmg){         
+
           slime.animate([{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)', transform: 'skewX(10deg)'},{filter:'sepia(100%) hue-rotate(-60deg) brightness(70%) saturate(2.5)'},{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)'}], {duration: 300, iterations: 1})
-        if (life >0){
+        if (life>0){
           life=life-dmg;
           progressBar.style.width = life + '%';}
         else{

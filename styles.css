@@ -294,3 +294,27 @@ a.Boton5, a.Boton5:active, a.Boton5:hover, a.Boton5:visited {
     opacity: 0.8;
 
 }
+
+.disabled{
+    background-color: rgba(200, 200, 200, 0.4);
+    border: 0.35vh solid rgb(141, 141, 141);
+    color: white;
+    font-size: 2vh;
+    padding: 3vh 3vh;
+    border-radius: 100%;
+    display: inline-table;
+    cursor: pointer;
+    margin-top: 1vh;
+    width: 12vw;
+    height: 12vw;
+    opacity: 0.4;
+    z-index: 1;
+
+
+}
+
+#burstColor{
+
+    z-index: 9;
+    position: relative;
+}
