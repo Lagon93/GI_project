@@ -3,7 +3,78 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
- 
+        <style> a.Attack {
+          display: inline-block;
+          width: 5rem;
+          height: 5rem;
+          position: relative;
+          cursor: pointer;
+        }
+        a.Big{
+          width: 7rem;
+          height: 7rem;
+        }
+        a.Big div.Timer{
+          line-height: 7rem;
+        }
+
+        a.Attack div.Timer,
+        a.Attack div.FondoBoton,
+        a.Attack svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+    
+        a.Attack div.FondoBoton {
+          border-radius: 100%;
+          background-color: rgb(218, 187, 104);
+          z-index: 1;
+        }
+    
+        a.Attack.Disabled div.FondoBoton {
+          background-color: rgb(216, 196, 152);
+        }
+    
+        img.AttackIcon {
+          z-index: 500;
+          filter: brightness(140%);
+
+        }
+        a.Attack img.AttackIcon{
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          right: 10%;
+          bottom: 10%;
+          width: 80%;
+          height: 80%;
+          display: block;
+        }
+    
+        a.Attack svg {
+          z-index: 9000;
+        }
+    
+        div.Timer {
+          z-index: 1000;
+          /* Importante que esto sea el ancho y alto del enlace (a.Attack) para que el texto salga centrado verticalmente:*/
+          line-height: 5rem;
+          text-align: center;
+          font-size: 1.7rem;
+          font-weight: bold;
+          color: #ffffff;
+        }
+    
+        a.Disabled *:not(.Timer) {
+          opacity: 0.5;
+        }
+        </style>
     </head>
     <body>
         <div class="divFondo"></div>
@@ -161,7 +232,6 @@
                   <g inkscape:groupmode="layer" id="layer6" inkscape:label="Máscara Cuerpo" style="display:none" />
                 </g>
               </svg>
-           
             </div>
             <div class="Titulo">
                 <span>Slime</span><br/>
@@ -169,67 +239,153 @@
             </div>
             <div class="Texto">
                 <div style="text-align: center; padding: 1vh 2vh;">*sonido de slime*</div>
-                <a class="Boton4" onclick="audio.play(); hit(15); "><img id="pole" src="./img/Foreign_Rockblade_Traveler_Geo_Characters_Genshin_Impact (1).png" alt=""></a>
-                <a class="Boton4" onclick="audio.play(); hit(10); "><img id="pole" src="./img/Starfell_Sword_Traveler_Geo_Characters_Genshin_Impact.png" alt=""></a>
-                <svg id="burstColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-                  <ellipse rx="57.040472" ry="57.040472" transform="translate(149.367622 142.03204)" fill="#d69028" stroke-width="0" />
-                </svg>
-
-                <a  class="disabled" id="Boton55" onclick="burst(event) "><img id="pole2" src="./img/Wake_of_Earth_Traveler_Geo_Characters_Genshin_Impact.png" alt=""></a>
+                <a class='Attack' data-needs-charge='0' data-cooldown='0' data-last-use='-1' data-damage='2'
+                onclick='attack(event);' data-charge-amount='1'>
+                <div class='FondoBoton'>&nbsp;</div>
+                <img class='AttackIcon'
+                  src='https://lagon93.github.io/GI_project/img/Foreign_Rockblade_Traveler_Geo_Characters_Genshin_Impact%20(1).png' />
+                <div class='Timer'></div>
+                <svg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 100 100'><circle cx="50" cy="50" r="47" style="fill: none; stroke: red; stroke-width: 6;" transform="rotate(-90 50 50)"/></svg>
+              </a>
+              <a class='Attack Disabled' data-needs-charge='0' data-charge='0' data-charge-max='5' data-cooldown='3000'
+                data-last-use='-1' data-damage='5' onclick='attack(event); 'data-charge-amount='3'>
+                <div class='FondoBoton'>&nbsp;</div>
+                <img class='AttackIcon'
+                  src='https://lagon93.github.io/GI_project/img/Starfell_Sword_Traveler_Geo_Characters_Genshin_Impact.png' />
+                <div class='Timer'></div>
+                <svg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 100 100'><circle cx="50" cy="50" r="47" style="fill: none; stroke: red; stroke-width: 6;" transform="rotate(-90 50 50)"/></svg>
+              </a><br>
+                <a class='Attack Disabled Big' data-needs-charge='1' data-charge='0' data-charge-max='20' data-cooldown='10000'
+                data-last-use='-1' data-damage='20' onclick='attack(event);' data-charge-amount='0'>
+                <div class='FondoBoton'>&nbsp;</div>
+                <img class='AttackIcon'
+                  src='https://lagon93.github.io/GI_project/img/Wake_of_Earth_Traveler_Geo_Characters_Genshin_Impact.png' />
+                <div class='Timer'></div>
+                <svg xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='0 0 100 100'><circle cx="50" cy="50" r="47" style="fill: none; stroke: red; stroke-width: 6;" transform="rotate(-90 50 50)"/></svg>
+              </a>
             </div>
         </div>
 
-    <script type="text/javascript">
-     /*Funcion para definir las variables al cargar la pagina*/
-     /*function variables(){
-        const slime =document.getElementById('svg1');
-        const Burst = document.getElementById('Boton55');
-        Burst.setAttribute('disabled');
-        const progressBar = document.getElementById('myBar');
-        const progresBarText = progressBar.querySelector('.progress-bar-text');
-        progressBar.style.width = 100 + '%';
-        var life= 100;
-      }*/
-     /*Audio a usar como IDLE*/
-       const audio = new Audio();
-        audio.src = "./sounds/slimejump-6913.mp3";
-        
-        /*Definimos otra vez las putas variables*/
-        const progressBar = document.getElementById('myBar');
-        const progresBarText = progressBar.querySelector('.progress-bar-text');
-        progressBar.style.width = 100 + '%';
-        var life= 100;
-        const slime =document.getElementById('svg1'); 
-
-        /*Funcion que comprueba si el burst esta activo o no*/
-        function burst(){
-          if(event.target.classList.contains('disabled')){
-            console.log('no esta desactivado')
-          }else{
-            console.log('esta desactivado')
-              return;}
+        <script type="text/javascript">
+    function updateButtons() {
+      const currentTime = new Date().getTime();
+      var buttons = document.getElementsByClassName('Attack');
+      for (var button of buttons) {
+        var svg = button.getElementsByTagName('svg').item(0);
+        var circle = svg.getElementsByTagName('circle').item(0);
+        var needsCharge = !(!(button.dataset.needsCharge === '1'));
+        var cooldown = Number(button.dataset.cooldown);
+        var lastUse = Number(button.dataset.lastUse);
+        var dif = currentTime - lastUse;
+        // console.log(needsCharge, cooldown, lastUse, dif);
+        const length = circle.getTotalLength();
+        circle.style.strokeDasharray = `${length} ${length}`;
+        if (dif < cooldown) {
+          // Esto pone el timer visible y actualiza el tiempo restante:
+          var milisLasting = cooldown - dif;
+          var seconds = (milisLasting / 1000).toFixed(1);
+          var percent = dif / cooldown;
+          button.getElementsByClassName('Timer').item(0).style.display = 'block';
+          button.getElementsByClassName('Timer').item(0).innerHTML = seconds;
+          circle.style.strokeDashoffset = length - (dif * length / cooldown);
+          circle.style.stroke = 'rgba(250, 215, 30, 0.5)';
+        } else {
+          // Esto oculta el timer porque el cooldown ya pasó:
+          button.getElementsByClassName('Timer').item(0).style.display = 'none';
+          circle.style.strokeDashoffset = 0;
+          circle.style.stroke = 'rgba(250, 250, 250, 0.5)';
         }
-
-        /*Funcion que contabiliza los golpes al slime y ejecuta la animacion*/
-        function hit(dmg){         
-
-          slime.animate([{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)', transform: 'skewX(10deg)'},{filter:'sepia(100%) hue-rotate(-60deg) brightness(70%) saturate(2.5)'},{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)'}], {duration: 300, iterations: 1})
-        if (life>0){
-          life=life-dmg;
-          progressBar.style.width = life + '%';}
-        else{
-          const audio2 = new Audio();
-            audio2.src = "./sounds/cartoon-splat-6086.mp3";
-            audio2.play()
-            audio2.onended=function(){
-              location.href='slimedeath.html'                
-            }
-          
+        if (needsCharge) {
+          // Si necesita recargar, el estar habilitado o no dependerá tanto del cooldown como de la carga:
+          var currentCharge = Number(button.dataset.charge);
+          var chargeMax = Number(button.dataset.chargeMax);
+          var percent = 1 - Math.max(0, Math.min(1, currentCharge / chargeMax));
+          var charged = currentCharge >= chargeMax;
+          var clip = `inset(${percent * 100}% 0% 0% 0%)`;
+          button.getElementsByClassName('FondoBoton').item(0).style.clipPath = clip;
+          if(charged && dif >= cooldown) {
+            button.classList.remove('Disabled');
+          } else {
+            button.classList.add('Disabled');
+          }
+        } else {
+          // Si no necesita recargar, el estar habilitado o no dependerá de si el cooldown ha pasado:
+          if (dif >= cooldown) {
+            button.classList.remove('Disabled');
+          } else {
+            button.classList.add('Disabled');
           }
         }
+      }
+    }
+    var updateInterval = setInterval(updateButtons, 100);
 
-        
-    </script>
+    function attack(event) {
+      // Importante usar el currentTarget, porque target a secas puede ser el temporizador
+      // o la imagen o cualquier elemento de dentro del enlace. El currentTarget apunta al
+      // elemento que tiene el onclick, que es el enlace en sí mismo:
+      var button = event.currentTarget;
+      console.log('atack', button);
+      var needsCharge = !(!(button.dataset.needsCharge === '1'));
+      var disabled = button.classList.contains('Disabled');
+      var charged = true;
+      var carga = button.dataset.chargeAmount;
+      if (needsCharge) {
+        var currentCharge = Number(button.dataset.charge);
+        var chargeMax = Number(button.dataset.chargeMax);
+        charged = currentCharge == chargeMax;
+      }
+      console.log('attack', needsCharge, disabled, charged);
+      // Si el link está disabled, o no tenemos la carga suficiente, cancelamos el click:
+      if (disabled || !charged) {
+        return false;
+      }
+      // Si estamos aquí es que hay carga y ya pasó el cooldown, así que podemos atacar:
+      var damage = Number(button.dataset.damage);
+      var currentTime = new Date().getTime();
+      hit(damage);
+      console.log('attack', damage, currentTime);
+      // Le ponemos el lastUse al botón, así empezará el cooldown:
+      button.dataset.lastUse = `${currentTime}`;
+      button.dataset.charge = '-1';
+      // Y lo deshabilitamos para que no se pueda usar hasta que pase el cooldown:
+      button.classList.add('Disabled');
+      addCharge(carga);
+    }
+
+    function addCharge(carga) {
+      const suma = carga && !isNaN(carga) ? Number(carga) : 1;
+      var buttons = document.getElementsByClassName('Attack');
+      for (var button of buttons) {
+        var needsCharge = !(!(button.dataset.needsCharge === '1'));
+        if(needsCharge) {
+          var currentCharge = Number(button.dataset.charge);
+          var chargeMax = Number(button.dataset.chargeMax);
+          button.dataset.charge = Math.min(chargeMax, (Number(carga) + currentCharge));
+        }
+      }
+    }
+      const slime =document.getElementById('svg1');
+        const progressBar = document.getElementById('myBar');
+        const progresBarText = progressBar.querySelector('.progress-bar-text');
+        progressBar.style.width = 100 + '%';
+        var life= 100;
+
+            /*Funcion que contabiliza los golpes al slime y ejecuta la animacion*/
+            function hit(dmg){         
+              slime.animate([{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)', transform: 'skewX(10deg)'},{filter:'sepia(100%) hue-rotate(-60deg) brightness(70%) saturate(2.5)'},{filter:'sepia(0%) hue-rotate(0deg) brightness(100%) saturate(1)'}], {duration: 300, iterations: 1})
+              life=life-dmg;
+              if (life>0){
+                progressBar.style.width = life + '%';}
+              else{
+                const audio2 = new Audio();
+                  audio2.src = "./sounds/cartoon-splat-6086.mp3";
+                  audio2.play()
+                  audio2.onended=function(){
+                    location.href='slimedeath.html'                
+                  }
+                }
+              }
+          </script>
     </body>
 </html>
