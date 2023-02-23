@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+    </head>
+    <body onload="calculardeseos()">
+ 
+        <div class="divFondo"></div>
+        
+        <div class="divContenido">
+            <div class="wishgif" style="z-index: 9998; position: absolute;"><video id="w5" src="/img/5wish.mp4" style=" width: 100vw; height:100vw;"></video> </div>  
+            <div class="Vacio"></div>
+            <div class="Icono">
+                <img class="Icono2" src="img/paimon1.webp"/>
+            </div>
+            <div class="Titulo">
+                <span>Paimon</span><br/>
+                <span class="Barra">&nbsp;</span>
+            </div>
+            <div class="Texto">
+                <div style="text-align: left; padding: 1vh 2vh;"></div>
+                <a class="BotonD" onclick="deseo()">Deseo x 1 <br><img src="/img/Item_Intertwined_Fate.webp" style="width:9vw; height:9vw;" alt=""><span id="x1">x</span>    </a>
+            </div>
+        </div>
+    <script>     
+        function calculardeseos(){
+        var deseos = 15;
+        document.getElementById('x1').innerHTML = `x ${deseos}`;     
+    }
+        var Tier1 = ['Diluc', 'Xiao', 'Tartaglia', 'Hu_Tao', 'Shogun_Raiden', 'Venti', 'Ganyu']
+        var Tier2 = ['Beidou', 'Bennet', 'Kaeya', 'Xingchiu', 'Ninguang', 'Razor', 'Rosaria', 'Sacarosa']
+        var wish = 0;
+        var deseos = 15;
+        function deseo(){
+        if (deseos>=0){
+            wish=Math.floor(Math.random() * 11);
+            if(wish>8){
+                let pj =Tier1[Math.floor(Math.random() * 8)];
+                console.log(pj);
+                for(var elem of document.getElementsByClassName('wishgif')){elem.style.display = 'block'};
+                document.getElementById('w5').play;
+            }else{
+                let pj =Tier2[Math.floor(Math.random() * 9)];
+                console.log(pj);
+            }
+            console.log(wish);
+            deseos=deseos-1;
+            document.getElementById('x1').innerHTML = `x ${deseos}`;    
+        }
+    }</script>
+    </body>
+</html>

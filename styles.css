@@ -318,3 +318,35 @@ a.Boton5, a.Boton5:active, a.Boton5:hover, a.Boton5:visited {
     z-index: 9;
     position: relative;
 }
+
+b{
+    font-weight: bold;
+    background-image: linear-gradient(
+     to right,
+     #8d734c 0,
+            #cb9b51 22%, 
+     #f6e27a 45%,
+     #f6f2c0 50%,
+     #f6e27a 55%,
+     #cb9b51 78%,
+     #8d734c 100%
+     );
+    color:transparent;
+    -webkit-background-clip:text;
+}
+
+.BotonD{
+    background-color: rgb(233, 227, 206);
+    border: 0.25vh solid white;
+    color: rgb(121, 108, 93);
+    font-size: 2vh;
+    padding: 1vh 3vh;
+    border-radius: 6vh;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 4vh;
+}
+
+.wishgif{
+    display: none;
+}
