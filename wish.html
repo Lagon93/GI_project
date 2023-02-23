@@ -37,12 +37,12 @@
         if (deseos>=0){
             wish=Math.floor(Math.random() * 11);
             if(wish>8){
-                let pj =Tier1[Math.floor(Math.random() * 8)];
+                let pj =Tier1[Math.floor(Math.random() * 7)];
                 console.log(pj);
                 for(var elem of document.getElementsByClassName('wishgif')){elem.style.display = 'block'};
                 document.getElementById('w5').play;
             }else{
-                let pj =Tier2[Math.floor(Math.random() * 9)];
+                let pj =Tier2[Math.floor(Math.random() * 8)];
                 console.log(pj);
             }
             console.log(wish);
