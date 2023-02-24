@@ -324,7 +324,7 @@ b{
     background-image: linear-gradient(
      to right,
      #8d734c 0,
-            #cb9b51 22%, 
+     #cb9b51 22%, 
      #f6e27a 45%,
      #f6f2c0 50%,
      #f6e27a 55%,
@@ -347,6 +347,18 @@ b{
     margin-top: 4vh;
 }
 
-.wishgif{
+.wishgif5{
+    display: none;
+}
+
+.wishgif4{
+    display: none;
+}
+
+.wishgif5pj{
+    display: none;
+}
+
+.wishgif4pj{
     display: none;
 }

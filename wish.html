@@ -10,7 +10,10 @@
         <div class="divFondo"></div>
         
         <div class="divContenido">
-            <div class="wishgif" style="z-index: 9998; position: absolute;"><video id="w5" src="/img/5wish.mp4" style=" width: 100vw; height:100vw;"></video> </div>  
+            <div class="wishgif5" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w5" src="img/5wish.webm" style=" margin:0px; width:100%; height:100%;"></video> </div>
+            <div class="wishgif5pj" id="wishgif5pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div>  
+            <div class="wishgif4" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w4" src="img/4wish.mp4" style=" margin:0px; width:100%; height:100%;"></video> </div>  
+            <div class="wishgif4pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div>  
             <div class="Vacio"></div>
             <div class="Icono">
                 <img class="Icono2" src="img/paimon1.webp"/>
@@ -21,7 +24,7 @@
             </div>
             <div class="Texto">
                 <div style="text-align: left; padding: 1vh 2vh;"></div>
-                <a class="BotonD" onclick="deseo()">Deseo x 1 <br><img src="/img/Item_Intertwined_Fate.webp" style="width:9vw; height:9vw;" alt=""><span id="x1">x</span>    </a>
+                <a class="BotonD" onclick="deseo()">Deseo x 1 <br><img src="img/Item_Intertwined_Fate.webp" style="width:9vw; height:9vw;" alt=""><span id="x1">x</span>    </a>
             </div>
         </div>
     <script>     
@@ -38,12 +41,24 @@
             wish=Math.floor(Math.random() * 11);
             if(wish>8){
                 let pj =Tier1[Math.floor(Math.random() * 7)];
+                var wpj=1;
                 console.log(pj);
-                for(var elem of document.getElementsByClassName('wishgif')){elem.style.display = 'block'};
-                document.getElementById('w5').play;
+                for(var elem of document.getElementsByClassName('wishgif5')){elem.style.display = 'block'};
+                document.getElementById('w5').play();
+                document.getElementById('w5').onended=function(){
+                    for(var elem of document.getElementsByClassName('wishgif5pj')){elem.style.display = 'block'};
+                    document.getElementById('wishgif5pj').innerHTML = `${pj}.webp`;
+                };
             }else{
                 let pj =Tier2[Math.floor(Math.random() * 8)];
+                var wpj= 0;
                 console.log(pj);
+                for(var elem of document.getElementsByClassName('wishgif4')){elem.style.display = 'block'};
+                document.getElementById('w4').play();
+                document.getElementById('w4').onended=function(){
+                    for(var elem of document.getElementsByClassName('wishgif4pj')){elem.style.display = 'block'};
+                    document.getElementById('wishgif4pj').innerHTML = `${pj}.webp`;
+                };
             }
             console.log(wish);
             deseos=deseos-1;
