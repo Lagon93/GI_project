@@ -362,3 +362,6 @@ b{
 .wishgif4pj{
     display: none;
 }
+video{
+    object-fit: fill;
+}

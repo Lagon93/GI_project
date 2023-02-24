@@ -10,9 +10,9 @@
         <div class="divFondo"></div>
         
         <div class="divContenido">
-            <div class="wishgif5" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w5" src="img/5wish.webm" style=" margin:0px; width:100%; height:100%;"></video> </div>
+            <div class="wishgif5" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w5" mute src="img/5wish.webm" style=" margin:0px; width:100%; height:100%;"></video> </div>
             <div class="wishgif5pj" id="wishgif5pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div>  
-            <div class="wishgif4" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w4" src="img/4wish.mp4" style=" margin:0px; width:100%; height:100%;"></video> </div>  
+            <div class="wishgif4" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w4" mute src="img/4wish.mp4" style=" margin:0px; width:100%; height:100%;"></video> </div>  
             <div class="wishgif4pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div>  
             <div class="Vacio"></div>
             <div class="Icono">
@@ -47,7 +47,7 @@
                 document.getElementById('w5').play();
                 document.getElementById('w5').onended=function(){
                     for(var elem of document.getElementsByClassName('wishgif5pj')){elem.style.display = 'block'};
-                    document.getElementById('wishgif5pj').innerHTML = `${pj}.webp`;
+                    document.getElementById('wishgif5pj').innerHTML = `<img src="img/${pj}.webp">`;
                 };
             }else{
                 let pj =Tier2[Math.floor(Math.random() * 8)];
@@ -57,7 +57,7 @@
                 document.getElementById('w4').play();
                 document.getElementById('w4').onended=function(){
                     for(var elem of document.getElementsByClassName('wishgif4pj')){elem.style.display = 'block'};
-                    document.getElementById('wishgif4pj').innerHTML = `${pj}.webp`;
+                    document.getElementById('wishgif4pj').innerHTML = `<img src="img/${pj}.webp">`;
                 };
             }
             console.log(wish);
