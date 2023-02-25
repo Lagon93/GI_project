@@ -340,7 +340,7 @@ b{
     border: 0.25vh solid white;
     color: rgb(121, 108, 93);
     font-size: 2vh;
-    padding: 1vh 3vh;
+    padding: 1.5vh 4vh 0vh;
     border-radius: 6vh;
     display: inline-block;
     cursor: pointer;
@@ -357,6 +357,9 @@ b{
 
 .wishgif5pj{
     display: none;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .wishgif4pj{
@@ -364,4 +367,43 @@ b{
 }
 video{
     object-fit: fill;
+}
+
+#personaje5{
+    position: absolute;
+    width: 125vw;
+    height: auto;
+    filter: brightness(100%) drop-shadow(0px 0px 45px rgb(232 171 65));
+}
+.personaje4{
+    position: absolute;
+    width: 125vw;
+    height: auto;
+    filter: brightness(100%) drop-shadow(0px 0px 45px rgb(193, 65, 232));
+}
+@keyframes deseopj {
+    from {filter: brightness(-200%)drop-shadow(0px 0px 45px rgb(232 171 65));}
+    to {filter: brightness(100%)drop-shadow(0px 0px 45px rgb(232 171 65));}
+}
+
+@keyframes deseopj4 {
+    from {filter: brightness(-200%)drop-shadow(0px 0px 45px rgb(193, 65, 232));}
+    to {filter: brightness(100%)drop-shadow(0px 0px 45px rgb(193, 65, 232));}
+}
+
+.wishgif5pjboton{
+    background-color: rgb(233, 227, 206);
+    border: 0.25vh solid white;
+    color: rgb(121, 108, 93);
+    font-size: 2vh;
+    padding: 1vh 3vh;
+    border-radius: 6vh;
+    display: none;
+    cursor: pointer;
+    margin-top: 4vh;
+    z-index: 99999;
+    position: absolute;
+    margin-top: 150vw;
+    align-content: center;
+    margin-left: 33vw;
 }

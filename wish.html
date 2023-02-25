@@ -10,10 +10,12 @@
         <div class="divFondo"></div>
         
         <div class="divContenido">
-            <div class="wishgif5" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w5" mute src="img/5wish.webm" style=" margin:0px; width:100%; height:100%;"></video> </div>
-            <div class="wishgif5pj" id="wishgif5pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div>  
-            <div class="wishgif4" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w4" mute src="img/4wish.mp4" style=" margin:0px; width:100%; height:100%;"></video> </div>  
-            <div class="wishgif4pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div>  
+            <div class="wishgif5" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w5" muted src="img/5wish.webm" style=" margin:0px; width:100%; height:100%;"></video> </div>
+            <div class="wishgif5pj" id="wishgif5pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"></div>
+            <div><a class="wishgif5pjboton" onclick="volver()">Siguiente</a></div>
+            <div class="wishgif4" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w4" muted src="img/4wish.mp4" style=" margin:0px; width:100%; height:100%;"></video> </div>  
+            <div class="wishgif4pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div> 
+            <div><a class="wishgif5pjboton" onclick="volver()">Siguiente</a></div> 
             <div class="Vacio"></div>
             <div class="Icono">
                 <img class="Icono2" src="img/paimon1.webp"/>
@@ -24,40 +26,67 @@
             </div>
             <div class="Texto">
                 <div style="text-align: left; padding: 1vh 2vh;"></div>
-                <a class="BotonD" onclick="deseo()">Deseo x 1 <br><img src="img/Item_Intertwined_Fate.webp" style="width:9vw; height:9vw;" alt=""><span id="x1">x</span>    </a>
+                <a class="BotonD" onclick="deseo()">Deseo x 1 <br><span style="display: inline-flex;align-content: center;justify-content: center;flex-direction: row;align-items: center;"><img style="width: 10vw; height: 6vh; " src="./img/Item_Intertwined_Fate.webp"> <span id="x1">x</span></span></a>
             </div>
         </div>
     <script>     
+    /* Funcion onload para calcular los deseos iniciales */
         function calculardeseos(){
         var deseos = 15;
         document.getElementById('x1').innerHTML = `x ${deseos}`;     
     }
+        /* Inicializamos variables*/
         var Tier1 = ['Diluc', 'Xiao', 'Tartaglia', 'Hu_Tao', 'Shogun_Raiden', 'Venti', 'Ganyu']
         var Tier2 = ['Beidou', 'Bennet', 'Kaeya', 'Xingchiu', 'Ninguang', 'Razor', 'Rosaria', 'Sacarosa']
         var wish = 0;
         var deseos = 15;
+        const wish4 = new Audio();
+        wish4.src = "./sounds/wish4star.mp3";
+        const wish5 = new Audio();
+        wish5.src = "./sounds/wish5star.mp3";
+
+        /*funcion para volver a la primera pantalla*/
+        function volver(){
+            for(var elem of document.getElementsByClassName('wishgif5')){elem.style.display = 'none'};
+            for(var elem of document.getElementsByClassName('wishgif5pj')){elem.style.display = 'none'};
+            for(var elem of document.getElementsByClassName('wishgif4')){elem.style.display = 'none'};
+            for(var elem of document.getElementsByClassName('wishgif4pj')){elem.style.display = 'none'};
+            for(var elem of document.getElementsByClassName('wishgif5pjboton')){elem.style.display = 'none'};
+
+        }
+        /*Funcion de tirada del deseo*/
         function deseo(){
         if (deseos>=0){
             wish=Math.floor(Math.random() * 11);
             if(wish>8){
-                let pj =Tier1[Math.floor(Math.random() * 7)];
-                var wpj=1;
+                /*Tier 5*/
+                let pj =Tier1[Math.floor(Math.random() * Tier1.length)];
                 console.log(pj);
                 for(var elem of document.getElementsByClassName('wishgif5')){elem.style.display = 'block'};
                 document.getElementById('w5').play();
+                wish5.play();
                 document.getElementById('w5').onended=function(){
-                    for(var elem of document.getElementsByClassName('wishgif5pj')){elem.style.display = 'block'};
-                    document.getElementById('wishgif5pj').innerHTML = `<img src="img/${pj}.webp">`;
+                    /*mostramos el personaje que ha tocado*/
+                    for(var elem of document.getElementsByClassName('wishgif5pj')){elem.style.display = 'flex'};
+                    for(var elem of document.getElementsByClassName('wishgif5pjboton')){elem.style.display = 'flex'};
+                    document.getElementById('wishgif5pj').innerHTML = `<img id="personaje5" src="img/${pj}.png">`;
+                    document.getElementById('personaje5').style.animationName = "deseopj"; 
+                    document.getElementById('personaje5').style.animationDuration="3s";
                 };
             }else{
-                let pj =Tier2[Math.floor(Math.random() * 8)];
-                var wpj= 0;
+                /*Tier 4*/
+                let pj =Tier2[Math.floor(Math.random() * Tier2.length)];
                 console.log(pj);
                 for(var elem of document.getElementsByClassName('wishgif4')){elem.style.display = 'block'};
                 document.getElementById('w4').play();
+                wish4.play();
                 document.getElementById('w4').onended=function(){
-                    for(var elem of document.getElementsByClassName('wishgif4pj')){elem.style.display = 'block'};
-                    document.getElementById('wishgif4pj').innerHTML = `<img src="img/${pj}.webp">`;
+                    /*mostramos el personaje que ha tocado*/
+                    for(var elem of document.getElementsByClassName('wishgif4pj')){elem.style.display = 'flex'};
+                    for(var elem of document.getElementsByClassName('wishgif5pjboton')){elem.style.display = 'flex'};
+                    document.getElementById('wishgif4pj').innerHTML = `<img class="personaje4" src="img/${pj}.webp">`;
+                    document.getElementById('personaje5').style.animationName = "deseopj4"; 
+                    document.getElementById('personaje5').style.animationDuration="3s";
                 };
             }
             console.log(wish);
