@@ -364,6 +364,9 @@ b{
 
 .wishgif4pj{
     display: none;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 video{
     object-fit: fill;
@@ -371,13 +374,13 @@ video{
 
 #personaje5{
     position: absolute;
-    width: 125vw;
+    width: 95vw;
     height: auto;
     filter: brightness(100%) drop-shadow(0px 0px 45px rgb(232 171 65));
 }
-.personaje4{
+#personaje4{
     position: absolute;
-    width: 125vw;
+    width: 95vw;
     height: auto;
     filter: brightness(100%) drop-shadow(0px 0px 45px rgb(193, 65, 232));
 }

@@ -10,12 +10,14 @@
         <div class="divFondo"></div>
         
         <div class="divContenido">
+	        <!--Divs Gacha-->
             <div class="wishgif5" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w5" muted src="img/5wish.webm" style=" margin:0px; width:100%; height:100%;"></video> </div>
             <div class="wishgif5pj" id="wishgif5pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"></div>
             <div><a class="wishgif5pjboton" onclick="volver()">Siguiente</a></div>
             <div class="wishgif4" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"><video id="w4" muted src="img/4wish.mp4" style=" margin:0px; width:100%; height:100%;"></video> </div>  
-            <div class="wishgif4pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div> 
+            <div class="wishgif4pj"  id="wishgif4pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div> 
             <div><a class="wishgif5pjboton" onclick="volver()">Siguiente</a></div> 
+            <!--Divs Equipo-->
             <div class="Vacio"></div>
             <div class="Icono">
                 <img class="Icono2" src="img/paimon1.webp"/>
@@ -36,8 +38,8 @@
         document.getElementById('x1').innerHTML = `x ${deseos}`;     
     }
         /* Inicializamos variables*/
-        var Tier1 = ['Diluc', 'Xiao', 'Tartaglia', 'Hu_Tao', 'Shogun_Raiden', 'Venti', 'Ganyu']
-        var Tier2 = ['Beidou', 'Bennet', 'Kaeya', 'Xingchiu', 'Ninguang', 'Razor', 'Rosaria', 'Sacarosa']
+        var Tier1 = ['albedo','arataki-itto','aloy','cyno', 'diluc', 'eula', 'ganyu', 'hu-tao', 'jean','kazuha', 'ayaka','ayato', 'keqing', 'klee', 'mona', 'nahida','nilou','qiqi','kokomi','shenhe','raiden','tartaglia','tighnari','wanderer','venti','xiao','yae-miko','yelan','yoimiya', 'zhongli']
+        var Tier2 = ['amber','beidou','bennett','candace','chongyun','collei','diona','fischl','gorou','sara','kuki-shinobu','lisa','ningguang','noelle','razor','rosaria','sucrose','sayu','shikanoin-heizou','thoma','xiangling','xingqiu','xinyan','yanfei','yun-jin']
         var wish = 0;
         var deseos = 15;
         const wish4 = new Audio();
@@ -69,7 +71,7 @@
                     /*mostramos el personaje que ha tocado*/
                     for(var elem of document.getElementsByClassName('wishgif5pj')){elem.style.display = 'flex'};
                     for(var elem of document.getElementsByClassName('wishgif5pjboton')){elem.style.display = 'flex'};
-                    document.getElementById('wishgif5pj').innerHTML = `<img id="personaje5" src="img/${pj}.png">`;
+                    document.getElementById('wishgif5pj').innerHTML = `<img id="personaje5" src="https://github.com/genshindev/api/blob/mistress/assets/images/characters/${pj}/gacha-splash?raw=true">`;
                     document.getElementById('personaje5').style.animationName = "deseopj"; 
                     document.getElementById('personaje5').style.animationDuration="3s";
                 };
@@ -84,9 +86,9 @@
                     /*mostramos el personaje que ha tocado*/
                     for(var elem of document.getElementsByClassName('wishgif4pj')){elem.style.display = 'flex'};
                     for(var elem of document.getElementsByClassName('wishgif5pjboton')){elem.style.display = 'flex'};
-                    document.getElementById('wishgif4pj').innerHTML = `<img class="personaje4" src="img/${pj}.webp">`;
-                    document.getElementById('personaje5').style.animationName = "deseopj4"; 
-                    document.getElementById('personaje5').style.animationDuration="3s";
+                    document.getElementById('wishgif4pj').innerHTML = `<img id="personaje4" src="https://github.com/genshindev/api/blob/mistress/assets/images/characters/${pj}/gacha-splash?raw=true">`;
+                    document.getElementById('personaje4').style.animationName = "deseopj4"; 
+                    document.getElementById('personaje4').style.animationDuration="3s";
                 };
             }
             console.log(wish);
