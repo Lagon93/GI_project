@@ -18,7 +18,7 @@
             <div class="wishgif4pj"  id="wishgif4pj" style="z-index: 9998; position: absolute; width: 100vw; height:100vh; background-color:black;"> </div> 
             <div><a class="wishgif5pjboton" onclick="volver()">Siguiente</a></div> 
             <div class="equipo" id="equipo" style="z-index: 9999; position: absolute; width: 100vw; height:100vh; background-color:rgba(0,0,0,0.99);"></div>
-            <div><a class="equipo equipoboton" onclick="volver()">Volver</a></div> 
+            <div><a class="equipo equipoboton" onclick="volver2()">Volver</a></div> 
 
             <!--Divs Equipo-->
             <div class="Vacio"></div>
@@ -59,8 +59,9 @@
             for(var elem of document.getElementsByClassName('wishgif4')){elem.style.display = 'none'};
             for(var elem of document.getElementsByClassName('wishgif4pj')){elem.style.display = 'none'};
             for(var elem of document.getElementsByClassName('wishgif5pjboton')){elem.style.display = 'none'};
+        }
+            function volver2(){
             for(var elem of document.getElementsByClassName('equipo')){elem.style.display = 'none'};
-
         }
         /*Funcion de tirada del deseo*/
         function deseo(){
@@ -106,6 +107,7 @@
         }
     }
     function equipo(){
+        document.getElementById('equipo').innerHTML = `<div class="equipo" id="equipo" style="display:flex; z-index: 9999; position: absolute; width: 100vw; height:100vh; background-color:rgba(0,0,0,0.99);"></div> `;
         for(var elem of document.getElementsByClassName('equipo')){elem.style.display = 'flex'};
         for(var elem of Team){
         document.getElementById('equipo').insertAdjacentHTML("beforeend",`<img class="pjequipo" src="https://github.com/genshindev/api/blob/mistress/assets/images/characters/${elem}/icon-side?raw=true">`) ;
