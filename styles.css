@@ -434,7 +434,6 @@ video{
 
 .equipo{
     display:none;
-
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
