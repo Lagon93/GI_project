@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body >
+        <style>
+        .grid {
+    width: 218px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-content: space-between;
+    justify-items: stretch;
+    margin-left: 6vw;}
+
+    img{
+    width: 14vh;
+    height: 23vh;   
+    }
+            </style>
+        <div class="divFondo"></div>
+        <div class="divContenido" style="height: 100%;">
+            <h3>Puntuacion:<span id="result"></span></h3>
+        <div class="grid"></div>
+        </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        //card options
+        const cardArray = [
+            {
+                name: 'fries',
+                img: './img/Diluc_Character_Card.webp'
+            },
+            {
+                name: 'cheeseburger',
+                img: 'images/cheeseburger.png'
+            },
+            {
+                name: 'ice-cream',
+                img: 'images/ice-cream.png'
+            },
+            {
+                name: 'pizza',
+                img: 'images/pizza.png'
+            },
+            {
+                name: 'milkshake',
+                img: 'images/milkshake.png'
+            },
+            {
+                name: 'hotdog',
+                img: 'images/hotdog.png'
+            },
+            {
+                name: 'fries',
+                img: 'images/fries.png'
+            },
+            {
+                name: 'cheeseburger',
+                img: 'images/cheeseburger.png'
+            },
+            {
+                name: 'ice-cream',
+                img: 'images/ice-cream.png'
+            },
+            {
+                name: 'pizza',
+                img: 'images/pizza.png'
+            },
+            {
+                name: 'milkshake',
+                img: 'images/milkshake.png'
+            },
+            {
+                name: 'hotdog',
+                img: 'images/hotdog.png'
+            }
+        ]
+
+        cardArray.sort(() => 0.5 - Math.random())
+
+        const grid = document.querySelector('.grid')
+        const resultDisplay = document.querySelector('#result')
+        let cardsChosen = []
+        let cardsChosenId = []
+        let cardsWon = []
+
+        //create your board
+        function createBoard() {
+            for (let i = 0; i < cardArray.length; i++) {
+                const card = document.createElement('img')
+                card.setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
+                card.setAttribute('data-id', i)
+                card.addEventListener('click', flipCard)
+                grid.appendChild(card)
+            }
+        }
+
+        //check for matches
+        function checkForMatch() {
+            const cards = document.querySelectorAll('img')
+            const optionOneId = cardsChosenId[0]
+            const optionTwoId = cardsChosenId[1]
+
+            if (optionOneId == optionTwoId) {
+                cards[optionOneId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
+                cards[optionTwoId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
+                alert('You have clicked the same image!')
+            }
+            else if (cardsChosen[0] === cardsChosen[1]) {
+                alert('You found a match')
+                cards[optionOneId].setAttribute('src', 'images/white.png')
+                cards[optionTwoId].setAttribute('src', 'images/white.png')
+                cards[optionOneId].removeEventListener('click', flipCard)
+                cards[optionTwoId].removeEventListener('click', flipCard)
+                cardsWon.push(cardsChosen)
+            } else {
+                cards[optionOneId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
+                cards[optionTwoId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
+                alert('Sorry, try again')
+            }
+            cardsChosen = []
+            cardsChosenId = []
+            resultDisplay.textContent = cardsWon.length
+            if (cardsWon.length === cardArray.length / 2) {
+                resultDisplay.textContent = 'Congratulations! You found them all!'
+            }
+        }
+
+        //flip your card
+        function flipCard() {
+            let cardId = this.getAttribute('data-id')
+            cardsChosen.push(cardArray[cardId].name)
+            cardsChosenId.push(cardId)
+            this.setAttribute('src', cardArray[cardId].img)
+            if (cardsChosen.length === 2) {
+                setTimeout(checkForMatch, 500)
+            }
+        }
+
+        createBoard()
+    })</script>
+    </body>
+</html>
