@@ -463,3 +463,8 @@ video{
     padding: 3vw;
     z-index:9999;
 }
+
+@keyframes brillos {
+    from {filter: brightness(100%);}
+    to {filter: brightness(10%)}
+}

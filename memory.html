@@ -6,6 +6,32 @@
     </head>
     <body >
         <style>
+            .progress {
+    height: 15px;
+    width: 70%;
+    border: 0px solid #adbeb2;
+    border-radius: 25px;
+    background-color: rgba(83, 84, 85, 0.7);
+    margin-bottom: 10px;
+    margin-left: 15vw;
+    
+}
+.progress-bar {
+    height: 100%;
+    background: #63e948;
+    display: flex;
+    align-items: center;
+    transition: width 0.25s;
+    border-radius: 25px;
+    margin-top: 1vh;
+    
+    
+}
+.progress-bar-text {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #cce7f5;
+}
         .grid {
     width: 218px;
     height: 200px;
@@ -18,71 +44,84 @@
     img{
     width: 14vh;
     height: 23vh;   
+    filter: brightness(100%)
     }
-            </style>
+    @keyframes brillos {
+    from {filter: brightness(200%);}
+    to {filter: brightness(100%)}
+}
+    </style>
         <div class="divFondo"></div>
         <div class="divContenido" style="height: 100%;">
-            <h3>Puntuacion:<span id="result"></span></h3>
+            <div class="progress">
+                <div id="myBar" class="progress-bar" style="width:0%;">
+
+                </div>
+            </div>
         <div class="grid"></div>
         </div>
 <script>
+        const progressBar = document.getElementById('myBar');
+        const progresBarText = progressBar.querySelector('.progress-bar-text');
+        progressBar.style.width = 100 + '%';
+        var life= 100;
     document.addEventListener('DOMContentLoaded', () => {
         //card options
         const cardArray = [
             {
-                name: 'fries',
+                name: 'Diluc',
                 img: './img/Diluc_Character_Card.webp'
             },
             {
-                name: 'cheeseburger',
-                img: 'images/cheeseburger.png'
+                name: 'Chongyun',
+                img: './img/Chongyun_Character_Card.webp'
             },
             {
-                name: 'ice-cream',
-                img: 'images/ice-cream.png'
+                name: 'Kaeya',
+                img: './img/Kaeya_Character_Card.webp'
             },
             {
-                name: 'pizza',
-                img: 'images/pizza.png'
+                name: 'Ningguang',
+                img: './img/Ningguang_Character_Card.webp'
             },
             {
-                name: 'milkshake',
-                img: 'images/milkshake.png'
+                name: 'Cyno',
+                img: './img/Cyno_Character_Card.webp'
             },
             {
-                name: 'hotdog',
-                img: 'images/hotdog.png'
+                name: 'Xingqiu',
+                img: './img/Xingqiu_Character_Card.webp'
             },
             {
-                name: 'fries',
-                img: 'images/fries.png'
+                name: 'Diluc',
+                img: './img/Diluc_Character_Card.webp'
             },
             {
-                name: 'cheeseburger',
-                img: 'images/cheeseburger.png'
+                name: 'Chongyun',
+                img: './img/Chongyun_Character_Card.webp'
             },
             {
-                name: 'ice-cream',
-                img: 'images/ice-cream.png'
+                name: 'Kaeya',
+                img: './img/Kaeya_Character_Card.webp'
             },
             {
-                name: 'pizza',
-                img: 'images/pizza.png'
+                name: 'Ningguang',
+                img: './img/Ningguang_Character_Card.webp'
             },
             {
-                name: 'milkshake',
-                img: 'images/milkshake.png'
+                name: 'Cyno',
+                img: './img/Cyno_Character_Card.webp'
             },
             {
-                name: 'hotdog',
-                img: 'images/hotdog.png'
+                name: 'Xingqiu',
+                img: './img/Xingqiu_Character_Card.webp'
             }
         ]
 
         cardArray.sort(() => 0.5 - Math.random())
 
         const grid = document.querySelector('.grid')
-        const resultDisplay = document.querySelector('#result')
+
         let cardsChosen = []
         let cardsChosenId = []
         let cardsWon = []
@@ -110,22 +149,26 @@
                 alert('You have clicked the same image!')
             }
             else if (cardsChosen[0] === cardsChosen[1]) {
-                alert('You found a match')
-                cards[optionOneId].setAttribute('src', 'images/white.png')
-                cards[optionTwoId].setAttribute('src', 'images/white.png')
+                cards[optionOneId].style.animationName = "brillos";
+                cards[optionOneId].style.animationDuration="3s";
+                cards[optionTwoId].style.animationName = "brillos";
+                cards[optionTwoId].style.animationDuration="3s";
+                cards[optionOneId].setAttribute('src', 'img/Stonehide_Reforged_Equipment_Card.webp')
+                cards[optionTwoId].setAttribute('src', 'img/Stonehide_Reforged_Equipment_Card.webp')
                 cards[optionOneId].removeEventListener('click', flipCard)
                 cards[optionTwoId].removeEventListener('click', flipCard)
                 cardsWon.push(cardsChosen)
             } else {
                 cards[optionOneId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
                 cards[optionTwoId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
-                alert('Sorry, try again')
+                
+                life=life-5;
+                progressBar.style.width = life + '%';
             }
             cardsChosen = []
             cardsChosenId = []
-            resultDisplay.textContent = cardsWon.length
             if (cardsWon.length === cardArray.length / 2) {
-                resultDisplay.textContent = 'Congratulations! You found them all!'
+                console.log( 'Congratulations! You found them all!');
             }
         }
 
