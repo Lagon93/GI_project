@@ -6,7 +6,7 @@
     </head>
     <body >
         <style>
-            .progress {
+    .progress {
     height: 15px;
     width: 70%;
     border: 0px solid #adbeb2;
@@ -23,9 +23,6 @@
     align-items: center;
     transition: width 0.25s;
     border-radius: 25px;
-    margin-top: 1vh;
-    
-    
 }
 .progress-bar-text {
     margin-left: 10px;
@@ -52,7 +49,8 @@
 }
     </style>
         <div class="divFondo"></div>
-        <div class="divContenido" style="height: 100%;">
+        <div class="divContenido" style="height: 100%; margin-top: 1vh;">
+            <span class="nombreC">Chiara</span>
             <div class="progress">
                 <div id="myBar" class="progress-bar" style="width:0%;">
 
@@ -169,6 +167,7 @@
             cardsChosenId = []
             if (cardsWon.length === cardArray.length / 2) {
                 console.log( 'Congratulations! You found them all!');
+                location.href='final.html';
             }
         }
 
