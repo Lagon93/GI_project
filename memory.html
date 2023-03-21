@@ -160,8 +160,11 @@
                 cards[optionOneId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
                 cards[optionTwoId].setAttribute('src', 'img/Elemental_Resonance_Enduring_Rock_Event_Card.webp')
                 
-                life=life-5;
+                life=life-Math.floor(Math.random() * (15 - 1)+1);
                 progressBar.style.width = life + '%';
+                if(life<=0){
+                    location.href='Inicio_memory.html';
+                }
             }
             cardsChosen = []
             cardsChosenId = []
